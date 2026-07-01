@@ -8,6 +8,23 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 100, damping: 15 }
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
@@ -58,9 +75,15 @@ export default function Contact() {
         </div>
 
         {/* Contact Layout: Left Info, Right Interactive Form */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start"
+        >
           {/* Left Column: Headline and Info */}
-          <div className="lg:col-span-5 space-y-8">
+          <motion.div variants={itemVariants} className="lg:col-span-5 space-y-8">
             <div className="space-y-4">
               <h3 className="text-2xl md:text-4xl font-display font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-cyan-300 to-pink-400 leading-tight">
                 Let's build something great together.
@@ -113,10 +136,10 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Interactive Form */}
-          <div className="lg:col-span-7">
+          <motion.div variants={itemVariants} className="lg:col-span-7">
             <div className="p-6 md:p-8 rounded-2xl glass-card bg-white/[0.02] border border-white/5 relative">
               <div className="absolute top-4 right-4 text-white/5">
                 <MessageSquare className="w-16 h-16" />
@@ -209,8 +232,8 @@ export default function Contact() {
                 )}
               </AnimatePresence>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Footer Division */}
         <footer className="mt-24 pt-12 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-6">

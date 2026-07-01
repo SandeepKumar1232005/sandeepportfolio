@@ -55,14 +55,14 @@ export default function Navbar({ activeSection }: NavbarProps) {
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 ${
-          isScrolled
-            ? "py-3 bg-[#0A0A0F]/70 backdrop-blur-md border-b border-white/5 shadow-2xl"
-            : "py-6 bg-transparent"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+      <header className="fixed top-0 left-0 w-full z-40 px-4 sm:px-6 md:px-8 transition-all duration-500 pointer-events-none pt-4 pb-0">
+        <div
+          className={`mx-auto w-full flex items-center justify-between transition-all duration-500 pointer-events-auto ${
+            isScrolled
+              ? "max-w-5xl px-6 md:px-8 py-2.5 rounded-full bg-[#0A0A0F]/80 backdrop-blur-lg border border-white/10 shadow-2xl"
+              : "max-w-7xl px-6 md:px-12 py-4 bg-transparent border border-transparent"
+          }`}
+        >
           {/* Logo / Initials */}
           <a
             href="#top"
@@ -72,12 +72,10 @@ export default function Navbar({ activeSection }: NavbarProps) {
             }}
             className="group flex items-center space-x-2"
           >
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-violet-600 via-cyan-500 to-pink-500 p-[1px] shadow-lg shadow-violet-500/10 transition-transform duration-300 group-hover:scale-105">
-              <div className="w-full h-full bg-[#0A0A0F] rounded-[9px] flex items-center justify-center">
-                <span className="font-display font-bold text-base text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400 tracking-wider">
-                  SK
-                </span>
-              </div>
+            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-violet-600 via-cyan-500 to-pink-500 shadow-none group-hover:shadow-[0_0_15px_rgba(124,58,237,0.4)] transition-all duration-300 group-hover:scale-105">
+              <span className="font-display font-bold text-base text-white tracking-wider">
+                SK
+              </span>
             </div>
             <span className="hidden sm:inline-block font-display font-medium text-sm tracking-wide text-[#F5F5F7]">
               Sandeep Kumar

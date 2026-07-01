@@ -89,11 +89,11 @@ export default function CustomCursor() {
           translateY: "-50%",
         }}
         animate={{
-          scale: clicked ? 0.8 : hovered ? 1.6 : 1,
-          backgroundColor: hovered ? "rgba(124, 58, 237, 0.15)" : "rgba(124, 58, 237, 0)",
-          borderColor: hovered ? "#06B6D4" : "rgba(124, 58, 237, 0.5)",
+          scale: clicked ? 0.8 : hovered ? 1.8 : 1,
+          backgroundColor: hovered ? "rgba(6, 182, 212, 0.15)" : "rgba(124, 58, 237, 0)",
+          borderColor: hovered ? "#EC4899" : "rgba(124, 58, 237, 0.5)",
           boxShadow: hovered 
-            ? "0 0 15px rgba(6, 182, 212, 0.5)" 
+            ? "0 0 20px rgba(6, 182, 212, 0.6), inset 0 0 10px rgba(124, 58, 237, 0.4)" 
             : "0 0 0px rgba(0,0,0,0)"
         }}
         transition={{ type: "tween", ease: "backOut", duration: 0.2 }}
